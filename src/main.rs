@@ -14,7 +14,7 @@ use file_utils::file_ext;
 fn main () {
 
     /*
-        Run example: 'cargo run -- /dest_to_input_file/file.file_extension /dest_to_output_file/ file_name
+        Run example: 'cargo run -- /path_to_input_file/file.file_extension /path_to_output_file/ file_name
     */
 
     let args: Vec<_>= env::args().collect();
@@ -27,7 +27,7 @@ fn main () {
 
     let data_in_bytes = open_file(input_file);
 
-    split_file(data_in_bytes, output_dir, output_file, file_extension);
+    let files = split_file(data_in_bytes, output_dir, output_file, file_extension);
 
     // write_file(output_file, data_in_bytes);
 }
