@@ -2,6 +2,7 @@ mod open_file;
 mod write_file;
 mod split_file;
 mod file_utils;
+mod merge_files;
 
 use std::env;
 
@@ -9,7 +10,7 @@ use open_file::open_file;
 use write_file::write_file;
 use split_file::split_file;
 use file_utils::file_ext;
-
+use merge_files::merge_files;
 
 fn main () {
 
@@ -27,7 +28,7 @@ fn main () {
 
     let data_in_bytes = open_file(input_file);
 
-    let files = split_file(data_in_bytes, output_dir, output_file, file_extension);
+    let files = split_file(data_in_bytes, output_dir, output_file);
 
-    // write_file(output_file, data_in_bytes);
+    merge_files(files, output_dir, output_file, file_extension);
 }
